@@ -31,6 +31,21 @@ public class ColorService {
         return repository.getByNumber(number);
     }
 
+    public List<List<Color>> groupColorsIntoFour(){
+        List<Color> colors = repository.getAllInOrderByValue();
+        int size = colors.size();
+        int groupSize = Math.max(1, size / 4);
+
+        List<List<Color>> groups = new ArrayList<>();
+        for (int i = 0; i < 4; i++){
+            int start = i * groupSize;
+            int end = Math.min(start + groupSize, size);
+            groups.add(colors.subList(start,end));
+        }
+
+        return groups;
+    }
+
     public List<Color> getRandomFourByValueGroups(){
         // 1. Get ordered list
         List<Color> ordered = repository.getAllInOrderByValue();
