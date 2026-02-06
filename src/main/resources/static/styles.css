@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #fafafa;
+}
+
+h1 {
+    color: #333;
+}
+
+table {
+    border-collapse: collapse;
+    width: 400px;
+    background: white;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+}
+
+th {
+    background-color: #eee;
+    text-align: left;
+}
+
+.swatch {
+    width: 40px;
+    height: 20px;
+    border: 1px solid #ccc;
+}
+#challenge-container {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+#challenge-container .swatch {
+    width: 60px;
+    height: 40px;
+    border: 2px solid #333;
+}
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.color-card {
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.color-card .swatch {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #aaa;
+    margin-bottom: 8px;
+}
+.value-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.value-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+.value-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.value-group {
+    padding-bottom: 20px;
+    border-bottom: 3px solid #ddd;
+}
+
+.group-label {
+    margin-bottom: 16px;
+    font-size: 1.4em;
+    color: #444;
+}
+
+.group-colors {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
+}
+
+.site-nav {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+}
+
+.site-nav a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #3366cc;
+    font-weight: bold;
+}
+
+.site-nav a:hover {
+    text-decoration: underline;
+}
+.site-nav {
+    background: #f2f2f2;
+    padding: 12px 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.random-four-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+
+.random-four-grid .color-card {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-align: center;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+

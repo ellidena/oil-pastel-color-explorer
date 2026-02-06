@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <title>My Oil Pastel Colors</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div th:replace="fragments/header :: site-header"></div>
+
+<h1>My Oil Pastel Colors (Thymeleaf)</h1>
+
+<div class="value-list">
+    <div class="value-group" th:each="group, iter : ${groups}">
+        <h2 class="group-label">Group [[${iter.index + 1}]]</h2>
+
+        <div class="group-colors">
+            <div class="color-card" th:each="color : ${group}">
+                <div class="swatch"
+                     th:style="'background-color:' + ${color.hex}">
+                </div>
+                <div th:text="${color.name}"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

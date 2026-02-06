@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Oil Pastel Colors</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>My Oil Pastel Colors</h1>
+<h2>Random Challenge Colors</h2>
+<div id="challenge-container"></div>
+<script>
+    fetch('/api/colors/random-four')
+        .then(response => response.json())
+        .then(colors => {
+            const container = document.getElementById('challenge-container');
+
+            colors.forEach(color => {
+                const box = document.createElement('div');
+                box.classList.add("swatch");
+                box.style.backgroundColor = color.hex;
+                box.title = `${color.name} (${color.number})`;
+
+                container.appendChild(box);
+            });
+        });
+</script>
+<br>
+
+<table id="color-table">
+    <tr>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Swatch</th>
+   </tr>
+</table>
+
+
+<script>
+    fetch('/api/colors/in-order')
+        .then(response => response.json())
+        .then(colors => {
+            const table = document.getElementById('color-table');
+
+            colors.forEach(color => {
+                const row = document.createElement('tr');
+
+                const nameCell = document.createElement('td');
+                nameCell.textContent = color.name;
+
+                const numberCell = document.createElement('td');
+                numberCell.textContent = color.number;
+
+                const swatchCell = document.createElement('td');
+                const swatch = document.createElement('div');
+                swatch.classList.add("swatch");
+                swatch.style.backgroundColor = color.hex;
+                swatchCell.appendChild(swatch);
+
+                row.appendChild(nameCell);
+                row.appendChild(numberCell);
+                row.appendChild(swatchCell);
+
+                table.appendChild(row);
+
+            });
+        });
+
+</script>
+
+
+</body>
+</html>
