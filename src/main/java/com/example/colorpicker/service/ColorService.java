@@ -31,58 +31,53 @@ public class ColorService {
         return repository.getByNumber(number);
     }
 
-    public List<List<Color>> groupColorsIntoFour(){
-        List<Color> colors = repository.getAllInOrderByValue();
+    public List<Color> getRandomFourByValueGroups(){
+        List<Color> ordered = repository.getAllInOrderByValue();
+        List<Color> filtered = filterExcludedColors(ordered);
+        List<List<Color>> groups = splitIntoFourGroups(filtered);
+        return pickRandomColorFromEachGroup(groups);
+    }
+
+    public List<List<Color>> groupColorsIntoFour() {
+        List<Color> ordered = repository.getAllInOrderByValue();
+        return splitIntoFourGroups(ordered);
+    }
+
+    private List<Color> filterExcludedColors(List<Color> colors){
+        List<String> excluded = Arrays.asList(
+                "white", "payne's grey", "mars black", "black"
+        );
+
+        List<Color> result = new ArrayList<>();
+        for (Color c : colors){
+            if (!excluded.contains(c.getName().toLowerCase())){
+                result.add(c);
+            }
+        }
+        return result;
+    }
+
+    private List<List<Color>> splitIntoFourGroups(List<Color> colors){
         int size = colors.size();
-        int groupSize = Math.max(1, size / 4);
+        int groupSize = Math.max(1, size/4);
 
         List<List<Color>> groups = new ArrayList<>();
-        for (int i = 0; i < 4; i++){
+        for(int i = 0; i < 4; i++){
             int start = i * groupSize;
             int end = Math.min(start + groupSize, size);
-            groups.add(colors.subList(start,end));
+            groups.add(colors.subList(start, end));
         }
-
         return groups;
     }
 
-    public List<Color> getRandomFourByValueGroups(){
-        // 1. Get ordered list
-        List<Color> ordered = repository.getAllInOrderByValue();
-
-        // 2. Exclude specific colors
-        List<String> excluded = Arrays.asList(
-                "white",
-                "payne's grey",
-                "mars black",
-                "black"
-        );
-
-        List<Color> filtered = new ArrayList<>();
-        for (Color color : ordered){
-            String name = color.getName().toLowerCase();
-            if (!excluded.contains(name)){
-                filtered.add(color);
-            }
-        }
-
-        // 3. split into four groups
-        int size = filtered.size();
-        int groupSize = size/4;
-
-        List<Color> picks = new ArrayList<>();
+    private List<Color> pickRandomColorFromEachGroup(List<List<Color>> groups){
         Random random = new Random();
+        List<Color> picks = new ArrayList<>();
 
-        for (int i = 0; i < 4; i++){
-            int start = i * groupSize;
-            int end = (i == 3) ? size : start + groupSize;
-
-            List<Color> group = filtered.subList(start, end);
-
-            // 4. pick a random color from this group
-            Color randomPick = group.get(random.nextInt(group.size()));
-            picks.add(randomPick);
+        for (List<Color> group : groups){
+            picks.add(group.get(random.nextInt(group.size())));
         }
         return picks;
     }
+
 }
