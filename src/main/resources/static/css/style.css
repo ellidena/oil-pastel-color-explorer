@@ -139,4 +139,13 @@ th {
     justify-content: center;
 }
 
+.swatch-large {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.2);
+    margin: 20px auto;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
 
