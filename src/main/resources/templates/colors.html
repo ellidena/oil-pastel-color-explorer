@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>My Oil Pastel Colors</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
 <div th:replace="fragments/header :: site-header"></div>
 
 <h1>My Oil Pastel Colors (Thymeleaf)</h1>
+<nav>
+    <a href="/random-four">Random Four</a>
+</nav>
 
 <div class="value-list">
     <div class="value-group" th:each="group, iter : ${groups}">
@@ -20,6 +23,7 @@
                      th:style="'background-color:' + ${color.hex}">
                 </div>
                 <div th:text="${color.name}"></div>
+                <a th:href="@{/color/{n}(n=${color.number})}">Details</a>
             </div>
         </div>
     </div>

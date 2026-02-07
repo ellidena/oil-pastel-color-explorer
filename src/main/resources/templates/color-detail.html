@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${color.name}">Color Details</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="fragments/header :: site-header"></div>
+
+<h1 th:text="${color.name}"></h1>
+
+<div class="swatch-large" th:style="'background-color:'+${color.hex}"></div>
+
+<p>
+    <strong>Number:</strong>
+    <span th:text="${color.number}"></span>
+</p>
+
+<p>
+    <strong>Hex:</strong>
+    <span th:text="${color.hex}"></span>
+</p>
+
+<a href="/colors">Back to all colors</a>
+
+</body>
+</html>
