@@ -27,3 +27,6 @@ This project is part of my personal learning journey in:
 - UI/UX layout
 - Clean project structures
 - Git and GitHub workflow
+
+## Note:
+Changes to this program will sometimes be a little off-topic as I will experiment with things I am learning about.
