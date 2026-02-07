@@ -1,15 +1,15 @@
 # Oil Pastel Color Explorer
 
-A Spring Boot + Thymeleaf project for exploring 72-color oil pastel collection.
+A Spring Boot + Thymeleaf project for exploring my 72-color oil pastel collection.
 The project includes a full color list, value‑based grouping, and a random four‑color challenge generator.
 
 
 ## Features
 - View all colors
 - Browse by value groups
-  (Colors are grouped by subjective lightness/darkness based on real swatches.)
+  (Colors are grouped by subjective lightness/darkness based on real swatches)
 - Generate a random four‑color challenge
-  (Generates four random colors (excluding white, Payne’s grey, Mars black, and black) and displays them from lightest to darkest.)
+  (Generates four random colors (excluding white, Payne’s grey, Mars black, and black) and displays them from lightest to darkest)
 - Clean, responsive layout
     
 
