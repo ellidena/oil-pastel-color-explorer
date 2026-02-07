@@ -64,7 +64,7 @@ public class ColorService {
         List<List<Color>> groups = new ArrayList<>();
         for(int i = 0; i < 4; i++){
             int start = i * groupSize;
-            int end = Math.min(start + groupSize, size);
+            int end = (i == 3) ? size : start + groupSize;
             groups.add(colors.subList(start, end));
         }
         return groups;
