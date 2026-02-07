@@ -6,7 +6,7 @@
     <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
-<div th:replace="fragments/header :: site-header"></div>
+<div th:replace="~{fragments/header :: site-header}"></div>
 
 <h1>Random Four Colors Lightest to Darkest</h1>
 <a href="/random-four" class="reload-button">Generate New Set</a>

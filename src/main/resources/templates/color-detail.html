@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div th:replace="fragments/header :: site-header"></div>
+<div th:replace="~{fragments/header :: site-header}"></div>
 
 <h1 th:text="${color.name}"></h1>
 
