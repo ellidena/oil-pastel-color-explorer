@@ -59,31 +59,30 @@ public class ColorRepository {
     }
 
     public void loadFromCsv(String resourcePath) {
-        /*
-        getResourceAsStream() returns null if the resource isn't found.
-         */
         InputStream in = getClass().getResourceAsStream(resourcePath);
         if (in ==null){
             throw new IllegalArgumentException("Resource not found: "+ resourcePath);
         }
-        Scanner scanner = new Scanner(in);
 
-        boolean first = true;
+        try(Scanner scanner = new Scanner(in);) {
+            boolean first = true;
 
-        while (scanner.hasNextLine()){
+            while (scanner.hasNextLine()){
 
-            String line = scanner.nextLine();
-            if (first){
-                first = false; // skip header
-                continue;
+                String line = scanner.nextLine();
+                if (first){
+                    first = false; // skip header
+                    continue;
+                }
+
+                String[] parts = line.split(",");
+                String name = parts[0].trim();
+                int number = Integer.parseInt(parts[1].trim());
+                String hex = parts[2].trim();
+                add(new Color(name, number, hex));
             }
-
-            String[] parts = line.split(",");
-            String name = parts[0].trim();
-            int number = Integer.parseInt(parts[1].trim());
-            String hex = parts[2].trim();
-            add(new Color(name, number, hex));
         }
+
     }
 
 
