@@ -46,4 +46,20 @@ public class ColorPageControllerTest {
 
         verify(service).groupColorsIntoFour();
     }
+
+    @Test
+    void showRandomFourPage_AddsPicksToModel() throws Exception {
+        List<Color> fakePicks = List.of(
+                new Color("blue", 10, "#0000ff")
+        );
+
+        when(service.getRandomFourByValueGroups()).thenReturn(fakePicks);
+
+        mockMvc.perform(get("/random-four"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("random-four"))
+                .andExpect(model().attribute("picks", fakePicks));
+
+        verify(service).getRandomFourByValueGroups();
+    }
 }
