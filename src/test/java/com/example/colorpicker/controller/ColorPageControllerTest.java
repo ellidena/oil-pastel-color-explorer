@@ -62,4 +62,18 @@ public class ColorPageControllerTest {
 
         verify(service).getRandomFourByValueGroups();
     }
+
+    @Test
+    void showColor_AddsColorToModel() throws Exception {
+        Color fake = new Color("green", 5, "#00ff00");
+
+        when(service.getByNumber(5)).thenReturn(fake);
+
+        mockMvc.perform(get("/color/5"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("color-detail"))
+                .andExpect(model().attribute("color", fake));
+
+        verify(service).getByNumber(5);
+    }
 }
