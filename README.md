@@ -8,9 +8,8 @@ The project includes a full color list, value‑based grouping, and a random fou
 - View all colors
 - Browse by value groups
   (Colors are grouped by subjective lightness/darkness based on real swatches)
-- Generate a random four‑color challenge
+- Generate a random four‑color set
   (Generates four random colors (excluding white, Payne’s grey, Mars black, and black) and displays them from lightest to darkest)
-- Clean, responsive layout
     
 
 ## How to run
@@ -24,9 +23,7 @@ The project includes a full color list, value‑based grouping, and a random fou
 This project is part of my personal learning journey in:
 - Spring Boot
 - Thymeleaf templating
-- UI/UX layout
-- Clean project structures
-- Git and GitHub workflow
+- Other topics that come up during my education.
 
 ## Note:
 Changes to this program will sometimes be a little off-topic as I will experiment with things I am learning about.
